@@ -19,3 +19,6 @@ RUN cat /home/anton/profile_suffix >> /home/anton/.profile
 RUN rm /home/anton/profile_suffix
 
 RUN chown anton:anton -R /home/anton
+
+USER anton
+WORKDIR /home/anton
