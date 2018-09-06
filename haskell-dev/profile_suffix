@@ -1,3 +1,29 @@
 
+alias j="cd ~/dev/haskell/javelin"
+
+alias sb="clear; stack build --fast"
+alias hb="clear; hfmt -w; stack build --fast"
+alias hh=hb
+alias sg="clear; stack ghci"
+alias g="sg"
+
+alias profile="emacs ~/.profile; source ~/.profile; clear"
+alias st="git st"
+alias ci="git ci"
+alias push="git push"
+alias pull="git pull"
+alias diff="git diff"
+alias co="git co"
+alias log="git log"
+alias br="git br"
+alias stash="git stash"
+alias reset="git reset --hard HEAD"
+alias sshlist="cat ~/.ssh/config"
+alias dev="cd ~/dev"
+alias sshedit="emacs ~/.ssh/config"
+alias e="%emacs"
+alias ee="emacs"
+alias ap="git commit --amend --no-edit; git push -f origin `git branch | grep "*"| cut -c 3-`"
+
 export PATH=$PATH:/home/anton/.local/bin
-cd
+cd $HOME
