@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN apt-get update
 RUN apt-get install -y git less curl wget openssl libssh2-1-dev man iputils-ping sudo mc emacs gnutls-bin
