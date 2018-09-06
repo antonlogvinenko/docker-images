@@ -6,19 +6,20 @@ RUN apt-get install -y git less curl wget openssl libssh2-1-dev man iputils-ping
 RUN useradd -m -d /home/anton anton
 RUN echo "anton:1q2w3e" | chpasswd
 RUN su anton
+RUN usermod -aG sudo anton
 
-RUN mkdir /home/anton/.ssh
-VOLUME ["/home/anton/.ssh", "/home/anton/dev"]
-
-RUN curl -sSL https://get.haskellstack.org/ | sh
-
-ADD init.el /home/anton/.emacs.d/init.el
+RUN chown anton:anton -R /home/anton
 
 ADD profile_suffix /home/anton/profile_suffix
 RUN cat /home/anton/profile_suffix >> /home/anton/.profile
 RUN rm /home/anton/profile_suffix
 
-RUN chown anton:anton -R /home/anton
+RUN mkdir /home/anton/.ssh
+VOLUME ["/home/anton/.ssh", "/home/anton/dev"]
+
+ADD init.el /home/anton/.emacs.d/init.el
+
+RUN curl -sSL https://get.haskellstack.org/ | sh
 
 USER anton
 WORKDIR /home/anton
