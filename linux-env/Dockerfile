@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update
-RUN apt-get install -y git less curl wget openssl libssh2-1-dev man iputils-ping sudo mc emacs gnutls-bin
+RUN apt-get install -y git emacs less curl wget openssl libssh2-1-dev man iputils-ping sudo mc emacs gnutls-bin python
 
 RUN useradd -m -d /home/anton anton
 RUN echo "anton:1q2w3e" | chpasswd
@@ -20,6 +20,10 @@ VOLUME ["/home/anton/.ssh", "/home/anton/dev"]
 ADD init.el /home/anton/.emacs.d/init.el
 
 RUN curl -sSL https://get.haskellstack.org/ | sh
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+pip install paramiko optparse
 
 USER anton
 WORKDIR /home/anton
