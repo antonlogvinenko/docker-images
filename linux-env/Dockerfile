@@ -21,9 +21,9 @@ ADD init.el /home/anton/.emacs.d/init.el
 
 RUN curl -sSL https://get.haskellstack.org/ | sh
 
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py
-pip install paramiko optparse
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python get-pip.py
+RUN pip install paramiko optparse
 
 USER anton
 WORKDIR /home/anton
